@@ -13,8 +13,10 @@ from torchsummary import summary
 import os
 import argparse
 
+import time
+
 from models import *
-from utils import progress_bar
+from utils import progress_bar, format_time
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
@@ -112,9 +114,11 @@ def train(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets).sum().item()
 
-        progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                     % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+        # progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+        #              % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
+        print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
+                     % (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
 def test(epoch):
     global best_acc
@@ -133,8 +137,11 @@ def test(epoch):
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
 
-            progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                         % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+            # progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+            #              % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+
+            print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
+                     % (batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
     # Save checkpoint.
     acc = 100.*correct/total
@@ -150,8 +157,16 @@ def test(epoch):
         torch.save(state, './checkpoint/ckpt.pth')
         best_acc = acc
 
-
+start_time = time.time()
 for epoch in range(start_epoch, start_epoch+200):
+    train_start_time = time.time()
     train(epoch)
+    train_stop_time = time.time()
+    print("Epoch: %03d | Training Time: %s" % (epoch, format_time(train_stop_time - train_start_time)))
+    test_start_time = time.time()
     test(epoch)
+    test_stop_time = time.time()
+    print("Epoch: %03d | Testing Time: %s" % (epoch, format_time(test_stop_time - test_start_time)))
     scheduler.step()
+stop_time = time.time()
+print("Total Time: %s" % format_time(stop_time - start_time))
