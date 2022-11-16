@@ -18,6 +18,11 @@ import time
 from models import *
 from utils import progress_bar, format_time
 
+exp_num = 1
+result_folder = './results/exp_{:03d}'.format(exp_num)
+if not os.path.isdir(result_folder):
+    os.mkdir(result_folder)
+
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
 parser.add_argument('--resume', '-r', action='store_true',
@@ -58,7 +63,7 @@ classes = ('plane', 'car', 'bird', 'cat', 'deer',
 # Model
 print('==> Building model..')
 # net = VGG('VGG19')
-net = ResNet18()
+# net = ResNet18()
 # net = PreActResNet18()
 # net = GoogLeNet()
 # net = DenseNet121()
@@ -72,12 +77,13 @@ net = ResNet18()
 # net = EfficientNetB0()
 # net = RegNetX_200MF()
 # net = SimpleDLA()
+net = ResNet_reduced_1()
 net = net.to(device)
 if device == 'cuda':
     net = torch.nn.DataParallel(net)
     cudnn.benchmark = True
 
-summary(net, input_size=(3, 32, 32))
+summary(net, input_size=(1, 3, 32, 32))
 
 if args.resume:
     # Load checkpoint.
@@ -114,11 +120,11 @@ def train(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets).sum().item()
 
-        progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                     % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+        # progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+        #              % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
-        # print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
-        #              % (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+        print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
+                     % (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
 def test(epoch):
     global best_acc
@@ -137,11 +143,11 @@ def test(epoch):
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
 
-            progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                         % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+            # progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+            #              % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
-            # print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
-            #          % (batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+            print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
+                     % (batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
     # Save checkpoint.
     acc = 100.*correct/total
@@ -152,9 +158,7 @@ def test(epoch):
             'acc': acc,
             'epoch': epoch,
         }
-        if not os.path.isdir('checkpoint'):
-            os.mkdir('checkpoint')
-        torch.save(state, './checkpoint/ckpt.pth')
+        torch.save(state, result_folder + '/ckpt_epoch_{:3d}.pth'.format(epoch))
         best_acc = acc
 
 start_time = time.time()
