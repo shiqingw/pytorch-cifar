@@ -7,6 +7,7 @@ import torch.backends.cudnn as cudnn
 
 import torchvision
 import torchvision.transforms as transforms
+from torchvision.transforms import AutoAugmentPolicy
 
 from torchsummary import summary
 
@@ -16,20 +17,28 @@ import time
 import platform
 
 from models import *
-from utils import progress_bar, format_time
+from utils import progress_bar, format_time, save_dict, prepare_data
+from test_cases import *
 
 if __name__ == '__main__':
 
-    exp_num = 1
-    result_folder = './results/exp_{:03d}'.format(exp_num)
-    if not os.path.isdir(result_folder):
-        os.mkdir(result_folder)
-
     parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
-    parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
+    parser.add_argument('--exp_num', default=0, type=int, help='test case number')
     parser.add_argument('--resume', '-r', action='store_true',
                         help='resume from checkpoint')
     args = parser.parse_args()
+
+    torch.manual_seed(0)
+    exp_num = args.exp_num
+    result_dir = './results/exp_{:03d}'.format(exp_num)
+    if not os.path.isdir(result_dir):
+        os.mkdir(result_dir)
+
+    test_case = Test_case(exp_num)
+    net = test_case.net
+    lr = test_case.lr
+    optimizier_type = test_case.optimizier_type
+    use_data_augmentation = test_case.use_data_augmentation
 
     if platform.system() == 'Darwin':
         if not torch.backends.mps.is_available():
@@ -44,55 +53,19 @@ if __name__ == '__main__':
             device = 'mps'
     else:
         device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    print(device)
+    print('==> device: ', device)
     best_acc = 0  # best test accuracy
     start_epoch = 0  # start from epoch 0 or last checkpoint epoch
 
     # Data
     print('==> Preparing data..')
-    transform_train = transforms.Compose([
-        transforms.RandomCrop(32, padding=4),
-        transforms.RandomHorizontalFlip(),
-        transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-    ])
-
-    transform_test = transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-    ])
-
-    trainset = torchvision.datasets.CIFAR10(
-        root='./data', train=True, download=True, transform=transform_train)
-    trainloader = torch.utils.data.DataLoader(
-        trainset, batch_size=128, shuffle=True, num_workers=2)
-
-    testset = torchvision.datasets.CIFAR10(
-        root='./data', train=False, download=True, transform=transform_test)
-    testloader = torch.utils.data.DataLoader(
-        testset, batch_size=100, shuffle=False, num_workers=2)
+    trainloader, testloader = prepare_data(use_data_augmentation)
 
     classes = ('plane', 'car', 'bird', 'cat', 'deer',
             'dog', 'frog', 'horse', 'ship', 'truck')
 
     # Model
-    print('==> Building model..')
-    # net = VGG('VGG19')
-    # net = ResNet18()
-    # net = PreActResNet18()
-    # net = GoogLeNet()
-    # net = DenseNet121()
-    # net = ResNeXt29_2x64d()
-    # net = MobileNet()
-    # net = MobileNetV2()
-    # net = DPN92()
-    # net = ShuffleNetG2()
-    # net = SENet18()
-    # net = ShuffleNetV2(1)
-    # net = EfficientNetB0()
-    # net = RegNetX_200MF()
-    # net = SimpleDLA()
-    net = ResNet_reduced_1()
+    print('==> Evaluating model..')
     if device == "mps":
         summary(net, input_size=(3, 32, 32))
         net = net.to(device)
@@ -108,20 +81,25 @@ if __name__ == '__main__':
     if args.resume:
         # Load checkpoint.
         print('==> Resuming from checkpoint..')
-        assert os.path.isdir('checkpoint'), 'Error: no checkpoint directory found!'
-        checkpoint = torch.load('./checkpoint/ckpt.pth')
+        assert os.path.isdir(result_dir), 'Error: no checkpoint directory found!'
+        checkpoint = torch.load(os.path.join(result_dir, "ckpt.pth"))
         net.load_state_dict(checkpoint['net'])
         best_acc = checkpoint['acc']
         start_epoch = checkpoint['epoch']
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=args.lr,
-                        momentum=0.9, weight_decay=5e-4)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
 
+    if optimizier_type == 'SGD':
+        optimizer = optim.SGD(net.parameters(), lr=lr,
+                            momentum=0.9, weight_decay=5e-4)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
+    elif optimizier_type == 'Adam':
+        optimizer = optim.Adam(net.parameters(), lr=lr, weight_decay=5e-4)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
+    else: raise ValueError('To be done')
 
     # Training
-    def train(epoch):
+    def train(epoch, training_loss, training_acc):
         print('\nEpoch: %d' % epoch)
         net.train()
         train_loss = 0
@@ -145,8 +123,11 @@ if __name__ == '__main__':
 
             print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
                         % (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+        training_loss += [train_loss/(batch_idx+1)]
+        training_acc += [correct/total]
+        
 
-    def test(epoch):
+    def test(epoch, testing_loss, testing_acc):
         global best_acc
         net.eval()
         test_loss = 0
@@ -168,6 +149,9 @@ if __name__ == '__main__':
 
                 print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
                         % (batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+                
+        testing_loss += [test_loss/(batch_idx+1)]
+        testing_acc += [correct/total]
 
         # Save checkpoint.
         acc = 100.*correct/total
@@ -178,19 +162,27 @@ if __name__ == '__main__':
                 'acc': acc,
                 'epoch': epoch,
             }
-            torch.save(state, result_folder + '/ckpt_epoch_{:03d}.pth'.format(epoch))
+            torch.save(state, os.path.join(result_dir, "ckpt.pth"))
             best_acc = acc
-
+        
+    training_loss = []
+    training_acc = []
+    testing_loss = []
+    testing_acc = []
     start_time = time.time()
     for epoch in range(start_epoch, start_epoch+200):
         train_start_time = time.time()
-        train(epoch)
+        train(epoch, training_loss, training_acc)
         train_stop_time = time.time()
         print("Epoch: %03d | Training Time: %s" % (epoch, format_time(train_stop_time - train_start_time)))
         test_start_time = time.time()
-        test(epoch)
+        test(epoch, testing_loss, testing_acc)
         test_stop_time = time.time()
         print("Epoch: %03d | Testing Time: %s" % (epoch, format_time(test_stop_time - test_start_time)))
         scheduler.step()
     stop_time = time.time()
     print("Total Time: %s" % format_time(stop_time - start_time))
+    training_info = {"training_loss": training_loss, "training_acc": training_acc,\
+         "testing_loss": testing_loss, "testing_acc": testing_acc}
+    print("==> Saving training loss/acc and testing loss/acc...")
+    save_dict(training_info, os.path.join(result_dir, "training_info.npy"))
