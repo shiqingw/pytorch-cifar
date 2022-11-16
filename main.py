@@ -93,10 +93,13 @@ if __name__ == '__main__':
     # net = RegNetX_200MF()
     # net = SimpleDLA()
     net = ResNet_reduced_1()
+    if device == "mps":
+        summary(net, input_size=(3, 32, 32))
+        net = net.to(device)
+    else:
+        net = net.to(device)
+        summary(net, input_size=(3, 32, 32))
 
-    summary(net, input_size=(3, 32, 32))
-    assert(False)
-    net = net.to(device)
     if device == 'cuda':
         net = torch.nn.DataParallel(net)
         cudnn.benchmark = True
@@ -175,7 +178,7 @@ if __name__ == '__main__':
                 'acc': acc,
                 'epoch': epoch,
             }
-            torch.save(state, result_folder + '/ckpt_epoch_{:3d}.pth'.format(epoch))
+            torch.save(state, result_folder + '/ckpt_epoch_{:03d}.pth'.format(epoch))
             best_acc = acc
 
     start_time = time.time()
