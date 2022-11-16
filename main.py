@@ -105,6 +105,7 @@ if __name__ == '__main__':
         train_loss = 0
         correct = 0
         total = 0
+        train_start_time = time.time()
         for batch_idx, (inputs, targets) in enumerate(trainloader):
             inputs, targets = inputs.to(device), targets.to(device)
             optimizer.zero_grad()
@@ -120,9 +121,11 @@ if __name__ == '__main__':
 
             # progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
             #              % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+        train_stop_time = time.time()
+        print('Epoch: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d) | Training Time: %s'
+                        % (epoch, train_loss/(batch_idx+1), 100.*correct/total, correct, total,
+                         format_time(train_stop_time - train_start_time)))
 
-            print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                        % (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total))
         training_loss += [train_loss/(batch_idx+1)]
         training_acc += [correct/total]
         
@@ -133,6 +136,7 @@ if __name__ == '__main__':
         test_loss = 0
         correct = 0
         total = 0
+        test_start_time = time.time()
         with torch.no_grad():
             for batch_idx, (inputs, targets) in enumerate(testloader):
                 inputs, targets = inputs.to(device), targets.to(device)
@@ -146,10 +150,11 @@ if __name__ == '__main__':
 
                 # progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
                 #              % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
-
-                print('Batch_idx: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                        % (batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total))
-                
+        test_stop_time = time.time()
+        print('Epoch: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d) | Training Time: %s'
+                        % (epoch, test_loss/(batch_idx+1), 100.*correct/total, correct, total,
+                         format_time(test_stop_time - test_start_time)))
+   
         testing_loss += [test_loss/(batch_idx+1)]
         testing_acc += [correct/total]
 
@@ -171,14 +176,8 @@ if __name__ == '__main__':
     testing_acc = []
     start_time = time.time()
     for epoch in range(start_epoch, start_epoch+200):
-        train_start_time = time.time()
         train(epoch, training_loss, training_acc)
-        train_stop_time = time.time()
-        print("Epoch: %03d | Training Time: %s" % (epoch, format_time(train_stop_time - train_start_time)))
-        test_start_time = time.time()
         test(epoch, testing_loss, testing_acc)
-        test_stop_time = time.time()
-        print("Epoch: %03d | Testing Time: %s" % (epoch, format_time(test_stop_time - test_start_time)))
         scheduler.step()
     stop_time = time.time()
     print("Total Time: %s" % format_time(stop_time - start_time))
