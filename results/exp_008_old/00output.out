@@ -1,0 +1,898 @@
+Test case num:  8
+==> device:  cuda
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+==> Evaluating model..
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 64, 32, 32]           1,728
+       BatchNorm2d-2           [-1, 64, 32, 32]             128
+            Conv2d-3           [-1, 64, 32, 32]          36,864
+       BatchNorm2d-4           [-1, 64, 32, 32]             128
+            Conv2d-5           [-1, 64, 32, 32]          36,864
+       BatchNorm2d-6           [-1, 64, 32, 32]             128
+        BasicBlock-7           [-1, 64, 32, 32]               0
+            Conv2d-8          [-1, 128, 16, 16]          73,728
+       BatchNorm2d-9          [-1, 128, 16, 16]             256
+           Conv2d-10          [-1, 128, 16, 16]         147,456
+      BatchNorm2d-11          [-1, 128, 16, 16]             256
+           Conv2d-12          [-1, 128, 16, 16]           8,192
+      BatchNorm2d-13          [-1, 128, 16, 16]             256
+       BasicBlock-14          [-1, 128, 16, 16]               0
+           Conv2d-15            [-1, 256, 8, 8]         294,912
+      BatchNorm2d-16            [-1, 256, 8, 8]             512
+           Conv2d-17            [-1, 256, 8, 8]         589,824
+      BatchNorm2d-18            [-1, 256, 8, 8]             512
+           Conv2d-19            [-1, 256, 8, 8]          32,768
+      BatchNorm2d-20            [-1, 256, 8, 8]             512
+       BasicBlock-21            [-1, 256, 8, 8]               0
+           Conv2d-22            [-1, 512, 4, 4]       1,179,648
+      BatchNorm2d-23            [-1, 512, 4, 4]           1,024
+           Conv2d-24            [-1, 512, 4, 4]       2,359,296
+      BatchNorm2d-25            [-1, 512, 4, 4]           1,024
+           Conv2d-26            [-1, 512, 4, 4]         131,072
+      BatchNorm2d-27            [-1, 512, 4, 4]           1,024
+       BasicBlock-28            [-1, 512, 4, 4]               0
+           Linear-29                   [-1, 10]           5,130
+================================================================
+Total params: 4,903,242
+Trainable params: 4,903,242
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.01
+Forward/backward pass size (MB): 6.56
+Params size (MB): 18.70
+Estimated Total Size (MB): 25.28
+----------------------------------------------------------------
+
+Epoch: 0
+Epoch: 000 | Loss: 1.715 | Acc: 36.298% (18149/50000) | Training Time: 17s443ms
+Epoch: 000 | Loss: 1.429 | Acc: 48.350% (4835/10000) | Testing Time: 1s923ms
+Saving..
+
+Epoch: 1
+Epoch: 001 | Loss: 1.230 | Acc: 55.556% (27778/50000) | Training Time: 11s814ms
+Epoch: 001 | Loss: 1.175 | Acc: 58.170% (5817/10000) | Testing Time: 1s628ms
+Saving..
+
+Epoch: 2
+Epoch: 002 | Loss: 0.957 | Acc: 66.054% (33027/50000) | Training Time: 11s990ms
+Epoch: 002 | Loss: 0.967 | Acc: 67.840% (6784/10000) | Testing Time: 1s710ms
+Saving..
+
+Epoch: 3
+Epoch: 003 | Loss: 0.786 | Acc: 72.406% (36203/50000) | Training Time: 11s802ms
+Epoch: 003 | Loss: 0.798 | Acc: 73.280% (7328/10000) | Testing Time: 1s618ms
+Saving..
+
+Epoch: 4
+Epoch: 004 | Loss: 0.656 | Acc: 76.986% (38493/50000) | Training Time: 11s807ms
+Epoch: 004 | Loss: 0.612 | Acc: 79.040% (7904/10000) | Testing Time: 1s628ms
+Saving..
+
+Epoch: 5
+Epoch: 005 | Loss: 0.567 | Acc: 80.330% (40165/50000) | Training Time: 11s878ms
+Epoch: 005 | Loss: 0.659 | Acc: 78.550% (7855/10000) | Testing Time: 1s608ms
+
+Epoch: 6
+Epoch: 006 | Loss: 0.506 | Acc: 82.592% (41296/50000) | Training Time: 11s917ms
+Epoch: 006 | Loss: 0.764 | Acc: 76.390% (7639/10000) | Testing Time: 1s556ms
+
+Epoch: 7
+Epoch: 007 | Loss: 0.464 | Acc: 83.920% (41960/50000) | Training Time: 11s879ms
+Epoch: 007 | Loss: 0.458 | Acc: 84.590% (8459/10000) | Testing Time: 1s616ms
+Saving..
+
+Epoch: 8
+Epoch: 008 | Loss: 0.416 | Acc: 85.654% (42827/50000) | Training Time: 11s759ms
+Epoch: 008 | Loss: 0.488 | Acc: 83.750% (8375/10000) | Testing Time: 1s583ms
+
+Epoch: 9
+Epoch: 009 | Loss: 0.384 | Acc: 86.788% (43394/50000) | Training Time: 11s927ms
+Epoch: 009 | Loss: 0.473 | Acc: 84.650% (8465/10000) | Testing Time: 1s632ms
+Saving..
+
+Epoch: 10
+Epoch: 010 | Loss: 0.353 | Acc: 87.848% (43924/50000) | Training Time: 11s808ms
+Epoch: 010 | Loss: 0.425 | Acc: 85.910% (8591/10000) | Testing Time: 1s650ms
+Saving..
+
+Epoch: 11
+Epoch: 011 | Loss: 0.332 | Acc: 88.376% (44188/50000) | Training Time: 11s824ms
+Epoch: 011 | Loss: 0.411 | Acc: 86.000% (8600/10000) | Testing Time: 1s640ms
+Saving..
+
+Epoch: 12
+Epoch: 012 | Loss: 0.303 | Acc: 89.484% (44742/50000) | Training Time: 11s707ms
+Epoch: 012 | Loss: 0.423 | Acc: 86.100% (8610/10000) | Testing Time: 1s591ms
+Saving..
+
+Epoch: 13
+Epoch: 013 | Loss: 0.281 | Acc: 90.174% (45087/50000) | Training Time: 11s843ms
+Epoch: 013 | Loss: 0.432 | Acc: 85.970% (8597/10000) | Testing Time: 1s624ms
+
+Epoch: 14
+Epoch: 014 | Loss: 0.272 | Acc: 90.550% (45275/50000) | Training Time: 11s901ms
+Epoch: 014 | Loss: 0.414 | Acc: 86.600% (8660/10000) | Testing Time: 1s585ms
+Saving..
+
+Epoch: 15
+Epoch: 015 | Loss: 0.253 | Acc: 91.176% (45588/50000) | Training Time: 11s877ms
+Epoch: 015 | Loss: 0.427 | Acc: 86.970% (8697/10000) | Testing Time: 1s609ms
+Saving..
+
+Epoch: 16
+Epoch: 016 | Loss: 0.237 | Acc: 91.688% (45844/50000) | Training Time: 11s916ms
+Epoch: 016 | Loss: 0.421 | Acc: 87.160% (8716/10000) | Testing Time: 1s623ms
+Saving..
+
+Epoch: 17
+Epoch: 017 | Loss: 0.222 | Acc: 92.202% (46101/50000) | Training Time: 12s157ms
+Epoch: 017 | Loss: 0.364 | Acc: 88.430% (8843/10000) | Testing Time: 1s581ms
+Saving..
+
+Epoch: 18
+Epoch: 018 | Loss: 0.210 | Acc: 92.652% (46326/50000) | Training Time: 11s849ms
+Epoch: 018 | Loss: 0.373 | Acc: 88.880% (8888/10000) | Testing Time: 1s637ms
+Saving..
+
+Epoch: 19
+Epoch: 019 | Loss: 0.196 | Acc: 93.170% (46585/50000) | Training Time: 11s945ms
+Epoch: 019 | Loss: 0.390 | Acc: 88.410% (8841/10000) | Testing Time: 1s618ms
+
+Epoch: 20
+Epoch: 020 | Loss: 0.189 | Acc: 93.478% (46739/50000) | Training Time: 11s787ms
+Epoch: 020 | Loss: 0.373 | Acc: 89.170% (8917/10000) | Testing Time: 1s630ms
+Saving..
+
+Epoch: 21
+Epoch: 021 | Loss: 0.177 | Acc: 93.732% (46866/50000) | Training Time: 11s979ms
+Epoch: 021 | Loss: 0.364 | Acc: 89.470% (8947/10000) | Testing Time: 1s697ms
+Saving..
+
+Epoch: 22
+Epoch: 022 | Loss: 0.160 | Acc: 94.416% (47208/50000) | Training Time: 11s938ms
+Epoch: 022 | Loss: 0.398 | Acc: 89.270% (8927/10000) | Testing Time: 1s611ms
+
+Epoch: 23
+Epoch: 023 | Loss: 0.161 | Acc: 94.382% (47191/50000) | Training Time: 11s954ms
+Epoch: 023 | Loss: 0.378 | Acc: 89.500% (8950/10000) | Testing Time: 1s594ms
+Saving..
+
+Epoch: 24
+Epoch: 024 | Loss: 0.154 | Acc: 94.490% (47245/50000) | Training Time: 11s842ms
+Epoch: 024 | Loss: 0.419 | Acc: 88.750% (8875/10000) | Testing Time: 1s639ms
+
+Epoch: 25
+Epoch: 025 | Loss: 0.138 | Acc: 95.156% (47578/50000) | Training Time: 11s980ms
+Epoch: 025 | Loss: 0.391 | Acc: 89.810% (8981/10000) | Testing Time: 1s622ms
+Saving..
+
+Epoch: 26
+Epoch: 026 | Loss: 0.140 | Acc: 95.062% (47531/50000) | Training Time: 11s986ms
+Epoch: 026 | Loss: 0.349 | Acc: 90.430% (9043/10000) | Testing Time: 1s586ms
+Saving..
+
+Epoch: 27
+Epoch: 027 | Loss: 0.127 | Acc: 95.438% (47719/50000) | Training Time: 11s703ms
+Epoch: 027 | Loss: 0.436 | Acc: 88.450% (8845/10000) | Testing Time: 1s580ms
+
+Epoch: 28
+Epoch: 028 | Loss: 0.129 | Acc: 95.568% (47784/50000) | Training Time: 11s970ms
+Epoch: 028 | Loss: 0.400 | Acc: 89.330% (8933/10000) | Testing Time: 1s558ms
+
+Epoch: 29
+Epoch: 029 | Loss: 0.115 | Acc: 96.008% (48004/50000) | Training Time: 11s974ms
+Epoch: 029 | Loss: 0.370 | Acc: 90.120% (9012/10000) | Testing Time: 1s598ms
+
+Epoch: 30
+Epoch: 030 | Loss: 0.110 | Acc: 96.136% (48068/50000) | Training Time: 11s826ms
+Epoch: 030 | Loss: 0.444 | Acc: 89.380% (8938/10000) | Testing Time: 1s755ms
+
+Epoch: 31
+Epoch: 031 | Loss: 0.108 | Acc: 96.264% (48132/50000) | Training Time: 11s932ms
+Epoch: 031 | Loss: 0.430 | Acc: 89.650% (8965/10000) | Testing Time: 1s570ms
+
+Epoch: 32
+Epoch: 032 | Loss: 0.105 | Acc: 96.362% (48181/50000) | Training Time: 11s905ms
+Epoch: 032 | Loss: 0.411 | Acc: 90.080% (9008/10000) | Testing Time: 1s603ms
+
+Epoch: 33
+Epoch: 033 | Loss: 0.102 | Acc: 96.454% (48227/50000) | Training Time: 12s43ms
+Epoch: 033 | Loss: 0.414 | Acc: 90.190% (9019/10000) | Testing Time: 1s583ms
+
+Epoch: 34
+Epoch: 034 | Loss: 0.094 | Acc: 96.640% (48320/50000) | Training Time: 12s49ms
+Epoch: 034 | Loss: 0.406 | Acc: 89.950% (8995/10000) | Testing Time: 1s594ms
+
+Epoch: 35
+Epoch: 035 | Loss: 0.088 | Acc: 96.942% (48471/50000) | Training Time: 11s650ms
+Epoch: 035 | Loss: 0.410 | Acc: 89.820% (8982/10000) | Testing Time: 1s642ms
+
+Epoch: 36
+Epoch: 036 | Loss: 0.091 | Acc: 96.840% (48420/50000) | Training Time: 12s65ms
+Epoch: 036 | Loss: 0.375 | Acc: 90.680% (9068/10000) | Testing Time: 1s632ms
+Saving..
+
+Epoch: 37
+Epoch: 037 | Loss: 0.083 | Acc: 97.100% (48550/50000) | Training Time: 11s924ms
+Epoch: 037 | Loss: 0.432 | Acc: 90.400% (9040/10000) | Testing Time: 1s624ms
+
+Epoch: 38
+Epoch: 038 | Loss: 0.086 | Acc: 97.000% (48500/50000) | Training Time: 11s963ms
+Epoch: 038 | Loss: 0.441 | Acc: 89.920% (8992/10000) | Testing Time: 1s690ms
+
+Epoch: 39
+Epoch: 039 | Loss: 0.079 | Acc: 97.142% (48571/50000) | Training Time: 11s774ms
+Epoch: 039 | Loss: 0.414 | Acc: 91.090% (9109/10000) | Testing Time: 1s690ms
+Saving..
+
+Epoch: 40
+Epoch: 040 | Loss: 0.080 | Acc: 97.178% (48589/50000) | Training Time: 12s32ms
+Epoch: 040 | Loss: 0.414 | Acc: 90.270% (9027/10000) | Testing Time: 1s575ms
+
+Epoch: 41
+Epoch: 041 | Loss: 0.077 | Acc: 97.320% (48660/50000) | Training Time: 11s938ms
+Epoch: 041 | Loss: 0.439 | Acc: 89.970% (8997/10000) | Testing Time: 1s568ms
+
+Epoch: 42
+Epoch: 042 | Loss: 0.072 | Acc: 97.490% (48745/50000) | Training Time: 11s900ms
+Epoch: 042 | Loss: 0.437 | Acc: 90.230% (9023/10000) | Testing Time: 1s744ms
+
+Epoch: 43
+Epoch: 043 | Loss: 0.068 | Acc: 97.630% (48815/50000) | Training Time: 11s910ms
+Epoch: 043 | Loss: 0.420 | Acc: 91.000% (9100/10000) | Testing Time: 1s616ms
+
+Epoch: 44
+Epoch: 044 | Loss: 0.070 | Acc: 97.572% (48786/50000) | Training Time: 12s38ms
+Epoch: 044 | Loss: 0.443 | Acc: 90.510% (9051/10000) | Testing Time: 1s608ms
+
+Epoch: 45
+Epoch: 045 | Loss: 0.067 | Acc: 97.674% (48837/50000) | Training Time: 11s931ms
+Epoch: 045 | Loss: 0.416 | Acc: 91.110% (9111/10000) | Testing Time: 1s579ms
+Saving..
+
+Epoch: 46
+Epoch: 046 | Loss: 0.066 | Acc: 97.714% (48857/50000) | Training Time: 12s82ms
+Epoch: 046 | Loss: 0.464 | Acc: 90.340% (9034/10000) | Testing Time: 1s588ms
+
+Epoch: 47
+Epoch: 047 | Loss: 0.057 | Acc: 98.034% (49017/50000) | Training Time: 12s128ms
+Epoch: 047 | Loss: 0.453 | Acc: 90.520% (9052/10000) | Testing Time: 1s688ms
+
+Epoch: 48
+Epoch: 048 | Loss: 0.059 | Acc: 97.934% (48967/50000) | Training Time: 12s6ms
+Epoch: 048 | Loss: 0.460 | Acc: 90.570% (9057/10000) | Testing Time: 1s676ms
+
+Epoch: 49
+Epoch: 049 | Loss: 0.059 | Acc: 97.922% (48961/50000) | Training Time: 11s938ms
+Epoch: 049 | Loss: 0.452 | Acc: 90.980% (9098/10000) | Testing Time: 1s617ms
+
+Epoch: 50
+Epoch: 050 | Loss: 0.054 | Acc: 98.124% (49062/50000) | Training Time: 12s102ms
+Epoch: 050 | Loss: 0.436 | Acc: 91.080% (9108/10000) | Testing Time: 1s627ms
+
+Epoch: 51
+Epoch: 051 | Loss: 0.052 | Acc: 98.268% (49134/50000) | Training Time: 11s769ms
+Epoch: 051 | Loss: 0.451 | Acc: 90.610% (9061/10000) | Testing Time: 1s664ms
+
+Epoch: 52
+Epoch: 052 | Loss: 0.053 | Acc: 98.148% (49074/50000) | Training Time: 11s843ms
+Epoch: 052 | Loss: 0.406 | Acc: 91.300% (9130/10000) | Testing Time: 1s604ms
+Saving..
+
+Epoch: 53
+Epoch: 053 | Loss: 0.053 | Acc: 98.168% (49084/50000) | Training Time: 12s9ms
+Epoch: 053 | Loss: 0.483 | Acc: 90.170% (9017/10000) | Testing Time: 1s587ms
+
+Epoch: 54
+Epoch: 054 | Loss: 0.054 | Acc: 98.138% (49069/50000) | Training Time: 11s900ms
+Epoch: 054 | Loss: 0.430 | Acc: 91.480% (9148/10000) | Testing Time: 1s600ms
+Saving..
+
+Epoch: 55
+Epoch: 055 | Loss: 0.053 | Acc: 98.228% (49114/50000) | Training Time: 12s26ms
+Epoch: 055 | Loss: 0.428 | Acc: 91.250% (9125/10000) | Testing Time: 1s588ms
+
+Epoch: 56
+Epoch: 056 | Loss: 0.045 | Acc: 98.480% (49240/50000) | Training Time: 11s923ms
+Epoch: 056 | Loss: 0.530 | Acc: 90.370% (9037/10000) | Testing Time: 1s660ms
+
+Epoch: 57
+Epoch: 057 | Loss: 0.049 | Acc: 98.270% (49135/50000) | Training Time: 11s862ms
+Epoch: 057 | Loss: 0.464 | Acc: 91.110% (9111/10000) | Testing Time: 1s705ms
+
+Epoch: 58
+Epoch: 058 | Loss: 0.043 | Acc: 98.578% (49289/50000) | Training Time: 11s946ms
+Epoch: 058 | Loss: 0.461 | Acc: 91.430% (9143/10000) | Testing Time: 1s728ms
+
+Epoch: 59
+Epoch: 059 | Loss: 0.043 | Acc: 98.526% (49263/50000) | Training Time: 11s739ms
+Epoch: 059 | Loss: 0.436 | Acc: 91.170% (9117/10000) | Testing Time: 1s602ms
+
+Epoch: 60
+Epoch: 060 | Loss: 0.047 | Acc: 98.354% (49177/50000) | Training Time: 11s888ms
+Epoch: 060 | Loss: 0.415 | Acc: 91.850% (9185/10000) | Testing Time: 1s606ms
+Saving..
+
+Epoch: 61
+Epoch: 061 | Loss: 0.042 | Acc: 98.566% (49283/50000) | Training Time: 11s941ms
+Epoch: 061 | Loss: 0.494 | Acc: 91.060% (9106/10000) | Testing Time: 1s584ms
+
+Epoch: 62
+Epoch: 062 | Loss: 0.043 | Acc: 98.580% (49290/50000) | Training Time: 11s925ms
+Epoch: 062 | Loss: 0.457 | Acc: 91.470% (9147/10000) | Testing Time: 1s572ms
+
+Epoch: 63
+Epoch: 063 | Loss: 0.039 | Acc: 98.680% (49340/50000) | Training Time: 11s954ms
+Epoch: 063 | Loss: 0.491 | Acc: 90.990% (9099/10000) | Testing Time: 1s623ms
+
+Epoch: 64
+Epoch: 064 | Loss: 0.037 | Acc: 98.744% (49372/50000) | Training Time: 11s945ms
+Epoch: 064 | Loss: 0.547 | Acc: 90.820% (9082/10000) | Testing Time: 1s714ms
+
+Epoch: 65
+Epoch: 065 | Loss: 0.039 | Acc: 98.668% (49334/50000) | Training Time: 11s931ms
+Epoch: 065 | Loss: 0.507 | Acc: 91.280% (9128/10000) | Testing Time: 1s567ms
+
+Epoch: 66
+Epoch: 066 | Loss: 0.036 | Acc: 98.826% (49413/50000) | Training Time: 11s986ms
+Epoch: 066 | Loss: 0.535 | Acc: 90.910% (9091/10000) | Testing Time: 1s641ms
+
+Epoch: 67
+Epoch: 067 | Loss: 0.035 | Acc: 98.766% (49383/50000) | Training Time: 12s21ms
+Epoch: 067 | Loss: 0.508 | Acc: 91.440% (9144/10000) | Testing Time: 1s753ms
+
+Epoch: 68
+Epoch: 068 | Loss: 0.038 | Acc: 98.656% (49328/50000) | Training Time: 11s806ms
+Epoch: 068 | Loss: 0.475 | Acc: 91.190% (9119/10000) | Testing Time: 1s633ms
+
+Epoch: 69
+Epoch: 069 | Loss: 0.031 | Acc: 98.924% (49462/50000) | Training Time: 11s988ms
+Epoch: 069 | Loss: 0.487 | Acc: 91.690% (9169/10000) | Testing Time: 1s584ms
+
+Epoch: 70
+Epoch: 070 | Loss: 0.033 | Acc: 98.910% (49455/50000) | Training Time: 11s936ms
+Epoch: 070 | Loss: 0.498 | Acc: 91.190% (9119/10000) | Testing Time: 1s608ms
+
+Epoch: 71
+Epoch: 071 | Loss: 0.036 | Acc: 98.786% (49393/50000) | Training Time: 11s721ms
+Epoch: 071 | Loss: 0.491 | Acc: 91.270% (9127/10000) | Testing Time: 1s636ms
+
+Epoch: 72
+Epoch: 072 | Loss: 0.030 | Acc: 98.952% (49476/50000) | Training Time: 11s999ms
+Epoch: 072 | Loss: 0.484 | Acc: 91.610% (9161/10000) | Testing Time: 1s572ms
+
+Epoch: 73
+Epoch: 073 | Loss: 0.031 | Acc: 98.954% (49477/50000) | Training Time: 11s886ms
+Epoch: 073 | Loss: 0.478 | Acc: 91.570% (9157/10000) | Testing Time: 1s597ms
+
+Epoch: 74
+Epoch: 074 | Loss: 0.026 | Acc: 99.128% (49564/50000) | Training Time: 11s949ms
+Epoch: 074 | Loss: 0.482 | Acc: 91.690% (9169/10000) | Testing Time: 1s630ms
+
+Epoch: 75
+Epoch: 075 | Loss: 0.026 | Acc: 99.080% (49540/50000) | Training Time: 12s2ms
+Epoch: 075 | Loss: 0.503 | Acc: 91.440% (9144/10000) | Testing Time: 1s642ms
+
+Epoch: 76
+Epoch: 076 | Loss: 0.030 | Acc: 98.970% (49485/50000) | Training Time: 11s873ms
+Epoch: 076 | Loss: 0.510 | Acc: 91.400% (9140/10000) | Testing Time: 1s763ms
+
+Epoch: 77
+Epoch: 077 | Loss: 0.030 | Acc: 98.984% (49492/50000) | Training Time: 11s994ms
+Epoch: 077 | Loss: 0.523 | Acc: 91.190% (9119/10000) | Testing Time: 1s584ms
+
+Epoch: 78
+Epoch: 078 | Loss: 0.028 | Acc: 99.096% (49548/50000) | Training Time: 11s780ms
+Epoch: 078 | Loss: 0.484 | Acc: 91.820% (9182/10000) | Testing Time: 1s661ms
+
+Epoch: 79
+Epoch: 079 | Loss: 0.025 | Acc: 99.132% (49566/50000) | Training Time: 11s921ms
+Epoch: 079 | Loss: 0.497 | Acc: 91.670% (9167/10000) | Testing Time: 1s667ms
+
+Epoch: 80
+Epoch: 080 | Loss: 0.027 | Acc: 99.028% (49514/50000) | Training Time: 11s993ms
+Epoch: 080 | Loss: 0.495 | Acc: 91.630% (9163/10000) | Testing Time: 1s587ms
+
+Epoch: 81
+Epoch: 081 | Loss: 0.028 | Acc: 99.036% (49518/50000) | Training Time: 11s966ms
+Epoch: 081 | Loss: 0.484 | Acc: 91.900% (9190/10000) | Testing Time: 1s592ms
+Saving..
+
+Epoch: 82
+Epoch: 082 | Loss: 0.025 | Acc: 99.166% (49583/50000) | Training Time: 11s859ms
+Epoch: 082 | Loss: 0.481 | Acc: 91.940% (9194/10000) | Testing Time: 1s697ms
+Saving..
+
+Epoch: 83
+Epoch: 083 | Loss: 0.024 | Acc: 99.206% (49603/50000) | Training Time: 11s910ms
+Epoch: 083 | Loss: 0.481 | Acc: 91.860% (9186/10000) | Testing Time: 1s617ms
+
+Epoch: 84
+Epoch: 084 | Loss: 0.023 | Acc: 99.166% (49583/50000) | Training Time: 12s189ms
+Epoch: 084 | Loss: 0.491 | Acc: 91.980% (9198/10000) | Testing Time: 1s620ms
+Saving..
+
+Epoch: 85
+Epoch: 085 | Loss: 0.026 | Acc: 99.042% (49521/50000) | Training Time: 11s788ms
+Epoch: 085 | Loss: 0.517 | Acc: 91.600% (9160/10000) | Testing Time: 1s615ms
+
+Epoch: 86
+Epoch: 086 | Loss: 0.022 | Acc: 99.252% (49626/50000) | Training Time: 12s6ms
+Epoch: 086 | Loss: 0.502 | Acc: 92.090% (9209/10000) | Testing Time: 1s601ms
+Saving..
+
+Epoch: 87
+Epoch: 087 | Loss: 0.019 | Acc: 99.338% (49669/50000) | Training Time: 11s875ms
+Epoch: 087 | Loss: 0.511 | Acc: 92.030% (9203/10000) | Testing Time: 1s613ms
+
+Epoch: 88
+Epoch: 088 | Loss: 0.021 | Acc: 99.294% (49647/50000) | Training Time: 11s683ms
+Epoch: 088 | Loss: 0.525 | Acc: 91.990% (9199/10000) | Testing Time: 1s618ms
+
+Epoch: 89
+Epoch: 089 | Loss: 0.018 | Acc: 99.414% (49707/50000) | Training Time: 11s786ms
+Epoch: 089 | Loss: 0.524 | Acc: 92.010% (9201/10000) | Testing Time: 1s676ms
+
+Epoch: 90
+Epoch: 090 | Loss: 0.020 | Acc: 99.318% (49659/50000) | Training Time: 12s33ms
+Epoch: 090 | Loss: 0.504 | Acc: 92.210% (9221/10000) | Testing Time: 1s607ms
+Saving..
+
+Epoch: 91
+Epoch: 091 | Loss: 0.021 | Acc: 99.292% (49646/50000) | Training Time: 12s83ms
+Epoch: 091 | Loss: 0.492 | Acc: 92.190% (9219/10000) | Testing Time: 1s580ms
+
+Epoch: 92
+Epoch: 092 | Loss: 0.020 | Acc: 99.342% (49671/50000) | Training Time: 12s112ms
+Epoch: 092 | Loss: 0.512 | Acc: 91.860% (9186/10000) | Testing Time: 1s654ms
+
+Epoch: 93
+Epoch: 093 | Loss: 0.019 | Acc: 99.350% (49675/50000) | Training Time: 12s112ms
+Epoch: 093 | Loss: 0.515 | Acc: 92.150% (9215/10000) | Testing Time: 1s655ms
+
+Epoch: 94
+Epoch: 094 | Loss: 0.015 | Acc: 99.482% (49741/50000) | Training Time: 11s882ms
+Epoch: 094 | Loss: 0.487 | Acc: 92.190% (9219/10000) | Testing Time: 1s645ms
+
+Epoch: 95
+Epoch: 095 | Loss: 0.015 | Acc: 99.472% (49736/50000) | Training Time: 11s795ms
+Epoch: 095 | Loss: 0.534 | Acc: 92.230% (9223/10000) | Testing Time: 1s692ms
+Saving..
+
+Epoch: 96
+Epoch: 096 | Loss: 0.016 | Acc: 99.490% (49745/50000) | Training Time: 11s670ms
+Epoch: 096 | Loss: 0.542 | Acc: 91.740% (9174/10000) | Testing Time: 1s602ms
+
+Epoch: 97
+Epoch: 097 | Loss: 0.018 | Acc: 99.386% (49693/50000) | Training Time: 11s893ms
+Epoch: 097 | Loss: 0.517 | Acc: 92.060% (9206/10000) | Testing Time: 1s617ms
+
+Epoch: 98
+Epoch: 098 | Loss: 0.018 | Acc: 99.384% (49692/50000) | Training Time: 11s965ms
+Epoch: 098 | Loss: 0.511 | Acc: 91.940% (9194/10000) | Testing Time: 1s595ms
+
+Epoch: 99
+Epoch: 099 | Loss: 0.016 | Acc: 99.488% (49744/50000) | Training Time: 11s899ms
+Epoch: 099 | Loss: 0.496 | Acc: 92.520% (9252/10000) | Testing Time: 1s583ms
+Saving..
+
+Epoch: 100
+Epoch: 100 | Loss: 0.016 | Acc: 99.490% (49745/50000) | Training Time: 12s98ms
+Epoch: 100 | Loss: 0.508 | Acc: 92.400% (9240/10000) | Testing Time: 1s601ms
+
+Epoch: 101
+Epoch: 101 | Loss: 0.015 | Acc: 99.510% (49755/50000) | Training Time: 11s953ms
+Epoch: 101 | Loss: 0.531 | Acc: 92.180% (9218/10000) | Testing Time: 1s676ms
+
+Epoch: 102
+Epoch: 102 | Loss: 0.014 | Acc: 99.508% (49754/50000) | Training Time: 12s22ms
+Epoch: 102 | Loss: 0.502 | Acc: 92.610% (9261/10000) | Testing Time: 1s722ms
+Saving..
+
+Epoch: 103
+Epoch: 103 | Loss: 0.014 | Acc: 99.520% (49760/50000) | Training Time: 11s995ms
+Epoch: 103 | Loss: 0.531 | Acc: 91.650% (9165/10000) | Testing Time: 1s634ms
+
+Epoch: 104
+Epoch: 104 | Loss: 0.012 | Acc: 99.628% (49814/50000) | Training Time: 11s913ms
+Epoch: 104 | Loss: 0.494 | Acc: 92.610% (9261/10000) | Testing Time: 1s691ms
+
+Epoch: 105
+Epoch: 105 | Loss: 0.014 | Acc: 99.560% (49780/50000) | Training Time: 11s727ms
+Epoch: 105 | Loss: 0.540 | Acc: 92.110% (9211/10000) | Testing Time: 1s660ms
+
+Epoch: 106
+Epoch: 106 | Loss: 0.016 | Acc: 99.508% (49754/50000) | Training Time: 11s872ms
+Epoch: 106 | Loss: 0.508 | Acc: 92.250% (9225/10000) | Testing Time: 1s619ms
+
+Epoch: 107
+Epoch: 107 | Loss: 0.012 | Acc: 99.564% (49782/50000) | Training Time: 12s182ms
+Epoch: 107 | Loss: 0.495 | Acc: 92.400% (9240/10000) | Testing Time: 1s577ms
+
+Epoch: 108
+Epoch: 108 | Loss: 0.011 | Acc: 99.606% (49803/50000) | Training Time: 11s816ms
+Epoch: 108 | Loss: 0.513 | Acc: 92.650% (9265/10000) | Testing Time: 1s643ms
+Saving..
+
+Epoch: 109
+Epoch: 109 | Loss: 0.012 | Acc: 99.608% (49804/50000) | Training Time: 11s962ms
+Epoch: 109 | Loss: 0.554 | Acc: 92.180% (9218/10000) | Testing Time: 1s619ms
+
+Epoch: 110
+Epoch: 110 | Loss: 0.010 | Acc: 99.698% (49849/50000) | Training Time: 11s971ms
+Epoch: 110 | Loss: 0.561 | Acc: 92.250% (9225/10000) | Testing Time: 1s624ms
+
+Epoch: 111
+Epoch: 111 | Loss: 0.014 | Acc: 99.504% (49752/50000) | Training Time: 12s142ms
+Epoch: 111 | Loss: 0.499 | Acc: 92.590% (9259/10000) | Testing Time: 1s591ms
+
+Epoch: 112
+Epoch: 112 | Loss: 0.008 | Acc: 99.734% (49867/50000) | Training Time: 11s853ms
+Epoch: 112 | Loss: 0.498 | Acc: 92.500% (9250/10000) | Testing Time: 1s708ms
+
+Epoch: 113
+Epoch: 113 | Loss: 0.010 | Acc: 99.670% (49835/50000) | Training Time: 11s803ms
+Epoch: 113 | Loss: 0.506 | Acc: 92.430% (9243/10000) | Testing Time: 1s706ms
+
+Epoch: 114
+Epoch: 114 | Loss: 0.007 | Acc: 99.766% (49883/50000) | Training Time: 11s949ms
+Epoch: 114 | Loss: 0.504 | Acc: 92.820% (9282/10000) | Testing Time: 1s632ms
+Saving..
+
+Epoch: 115
+Epoch: 115 | Loss: 0.007 | Acc: 99.756% (49878/50000) | Training Time: 12s14ms
+Epoch: 115 | Loss: 0.549 | Acc: 92.480% (9248/10000) | Testing Time: 1s619ms
+
+Epoch: 116
+Epoch: 116 | Loss: 0.010 | Acc: 99.670% (49835/50000) | Training Time: 12s98ms
+Epoch: 116 | Loss: 0.546 | Acc: 92.270% (9227/10000) | Testing Time: 1s593ms
+
+Epoch: 117
+Epoch: 117 | Loss: 0.010 | Acc: 99.692% (49846/50000) | Training Time: 11s920ms
+Epoch: 117 | Loss: 0.559 | Acc: 92.130% (9213/10000) | Testing Time: 1s602ms
+
+Epoch: 118
+Epoch: 118 | Loss: 0.009 | Acc: 99.706% (49853/50000) | Training Time: 11s925ms
+Epoch: 118 | Loss: 0.536 | Acc: 92.490% (9249/10000) | Testing Time: 1s617ms
+
+Epoch: 119
+Epoch: 119 | Loss: 0.007 | Acc: 99.774% (49887/50000) | Training Time: 11s919ms
+Epoch: 119 | Loss: 0.544 | Acc: 92.420% (9242/10000) | Testing Time: 1s650ms
+
+Epoch: 120
+Epoch: 120 | Loss: 0.007 | Acc: 99.762% (49881/50000) | Training Time: 11s953ms
+Epoch: 120 | Loss: 0.518 | Acc: 92.530% (9253/10000) | Testing Time: 1s638ms
+
+Epoch: 121
+Epoch: 121 | Loss: 0.008 | Acc: 99.744% (49872/50000) | Training Time: 11s600ms
+Epoch: 121 | Loss: 0.576 | Acc: 92.220% (9222/10000) | Testing Time: 1s659ms
+
+Epoch: 122
+Epoch: 122 | Loss: 0.008 | Acc: 99.750% (49875/50000) | Training Time: 12s167ms
+Epoch: 122 | Loss: 0.511 | Acc: 92.940% (9294/10000) | Testing Time: 1s653ms
+Saving..
+
+Epoch: 123
+Epoch: 123 | Loss: 0.006 | Acc: 99.786% (49893/50000) | Training Time: 11s980ms
+Epoch: 123 | Loss: 0.533 | Acc: 92.540% (9254/10000) | Testing Time: 1s607ms
+
+Epoch: 124
+Epoch: 124 | Loss: 0.006 | Acc: 99.784% (49892/50000) | Training Time: 11s903ms
+Epoch: 124 | Loss: 0.548 | Acc: 92.700% (9270/10000) | Testing Time: 1s583ms
+
+Epoch: 125
+Epoch: 125 | Loss: 0.006 | Acc: 99.772% (49886/50000) | Training Time: 12s102ms
+Epoch: 125 | Loss: 0.593 | Acc: 91.840% (9184/10000) | Testing Time: 1s601ms
+
+Epoch: 126
+Epoch: 126 | Loss: 0.008 | Acc: 99.742% (49871/50000) | Training Time: 11s871ms
+Epoch: 126 | Loss: 0.533 | Acc: 92.390% (9239/10000) | Testing Time: 1s589ms
+
+Epoch: 127
+Epoch: 127 | Loss: 0.005 | Acc: 99.800% (49900/50000) | Training Time: 12s75ms
+Epoch: 127 | Loss: 0.531 | Acc: 92.790% (9279/10000) | Testing Time: 1s605ms
+
+Epoch: 128
+Epoch: 128 | Loss: 0.005 | Acc: 99.812% (49906/50000) | Training Time: 11s963ms
+Epoch: 128 | Loss: 0.538 | Acc: 92.840% (9284/10000) | Testing Time: 1s588ms
+
+Epoch: 129
+Epoch: 129 | Loss: 0.006 | Acc: 99.798% (49899/50000) | Training Time: 12s9ms
+Epoch: 129 | Loss: 0.531 | Acc: 92.820% (9282/10000) | Testing Time: 1s581ms
+
+Epoch: 130
+Epoch: 130 | Loss: 0.004 | Acc: 99.856% (49928/50000) | Training Time: 11s992ms
+Epoch: 130 | Loss: 0.547 | Acc: 92.760% (9276/10000) | Testing Time: 1s683ms
+
+Epoch: 131
+Epoch: 131 | Loss: 0.004 | Acc: 99.860% (49930/50000) | Training Time: 11s979ms
+Epoch: 131 | Loss: 0.555 | Acc: 92.850% (9285/10000) | Testing Time: 1s719ms
+
+Epoch: 132
+Epoch: 132 | Loss: 0.004 | Acc: 99.848% (49924/50000) | Training Time: 12s18ms
+Epoch: 132 | Loss: 0.542 | Acc: 92.880% (9288/10000) | Testing Time: 1s699ms
+
+Epoch: 133
+Epoch: 133 | Loss: 0.005 | Acc: 99.844% (49922/50000) | Training Time: 11s891ms
+Epoch: 133 | Loss: 0.529 | Acc: 92.960% (9296/10000) | Testing Time: 1s612ms
+Saving..
+
+Epoch: 134
+Epoch: 134 | Loss: 0.004 | Acc: 99.846% (49923/50000) | Training Time: 11s951ms
+Epoch: 134 | Loss: 0.565 | Acc: 92.480% (9248/10000) | Testing Time: 1s648ms
+
+Epoch: 135
+Epoch: 135 | Loss: 0.004 | Acc: 99.888% (49944/50000) | Training Time: 11s894ms
+Epoch: 135 | Loss: 0.538 | Acc: 93.040% (9304/10000) | Testing Time: 1s582ms
+Saving..
+
+Epoch: 136
+Epoch: 136 | Loss: 0.003 | Acc: 99.878% (49939/50000) | Training Time: 11s976ms
+Epoch: 136 | Loss: 0.521 | Acc: 93.010% (9301/10000) | Testing Time: 1s615ms
+
+Epoch: 137
+Epoch: 137 | Loss: 0.004 | Acc: 99.868% (49934/50000) | Training Time: 11s932ms
+Epoch: 137 | Loss: 0.542 | Acc: 93.020% (9302/10000) | Testing Time: 1s573ms
+
+Epoch: 138
+Epoch: 138 | Loss: 0.003 | Acc: 99.898% (49949/50000) | Training Time: 12s23ms
+Epoch: 138 | Loss: 0.550 | Acc: 92.880% (9288/10000) | Testing Time: 1s657ms
+
+Epoch: 139
+Epoch: 139 | Loss: 0.004 | Acc: 99.870% (49935/50000) | Training Time: 11s960ms
+Epoch: 139 | Loss: 0.535 | Acc: 92.910% (9291/10000) | Testing Time: 1s597ms
+
+Epoch: 140
+Epoch: 140 | Loss: 0.004 | Acc: 99.870% (49935/50000) | Training Time: 12s31ms
+Epoch: 140 | Loss: 0.551 | Acc: 92.680% (9268/10000) | Testing Time: 1s632ms
+
+Epoch: 141
+Epoch: 141 | Loss: 0.004 | Acc: 99.880% (49940/50000) | Training Time: 11s916ms
+Epoch: 141 | Loss: 0.573 | Acc: 92.860% (9286/10000) | Testing Time: 1s757ms
+
+Epoch: 142
+Epoch: 142 | Loss: 0.003 | Acc: 99.914% (49957/50000) | Training Time: 11s854ms
+Epoch: 142 | Loss: 0.556 | Acc: 92.930% (9293/10000) | Testing Time: 1s626ms
+
+Epoch: 143
+Epoch: 143 | Loss: 0.003 | Acc: 99.898% (49949/50000) | Training Time: 11s858ms
+Epoch: 143 | Loss: 0.556 | Acc: 93.080% (9308/10000) | Testing Time: 1s631ms
+Saving..
+
+Epoch: 144
+Epoch: 144 | Loss: 0.003 | Acc: 99.880% (49940/50000) | Training Time: 11s858ms
+Epoch: 144 | Loss: 0.560 | Acc: 92.830% (9283/10000) | Testing Time: 1s598ms
+
+Epoch: 145
+Epoch: 145 | Loss: 0.003 | Acc: 99.890% (49945/50000) | Training Time: 12s33ms
+Epoch: 145 | Loss: 0.567 | Acc: 92.790% (9279/10000) | Testing Time: 1s736ms
+
+Epoch: 146
+Epoch: 146 | Loss: 0.002 | Acc: 99.912% (49956/50000) | Training Time: 11s823ms
+Epoch: 146 | Loss: 0.565 | Acc: 92.860% (9286/10000) | Testing Time: 1s598ms
+
+Epoch: 147
+Epoch: 147 | Loss: 0.003 | Acc: 99.904% (49952/50000) | Training Time: 11s840ms
+Epoch: 147 | Loss: 0.577 | Acc: 93.050% (9305/10000) | Testing Time: 1s596ms
+
+Epoch: 148
+Epoch: 148 | Loss: 0.002 | Acc: 99.926% (49963/50000) | Training Time: 11s813ms
+Epoch: 148 | Loss: 0.584 | Acc: 92.880% (9288/10000) | Testing Time: 1s652ms
+
+Epoch: 149
+Epoch: 149 | Loss: 0.002 | Acc: 99.922% (49961/50000) | Training Time: 11s972ms
+Epoch: 149 | Loss: 0.564 | Acc: 93.050% (9305/10000) | Testing Time: 1s734ms
+
+Epoch: 150
+Epoch: 150 | Loss: 0.002 | Acc: 99.924% (49962/50000) | Training Time: 11s856ms
+Epoch: 150 | Loss: 0.569 | Acc: 92.650% (9265/10000) | Testing Time: 1s716ms
+
+Epoch: 151
+Epoch: 151 | Loss: 0.002 | Acc: 99.954% (49977/50000) | Training Time: 12s97ms
+Epoch: 151 | Loss: 0.577 | Acc: 92.930% (9293/10000) | Testing Time: 1s652ms
+
+Epoch: 152
+Epoch: 152 | Loss: 0.002 | Acc: 99.932% (49966/50000) | Training Time: 11s911ms
+Epoch: 152 | Loss: 0.589 | Acc: 92.880% (9288/10000) | Testing Time: 1s661ms
+
+Epoch: 153
+Epoch: 153 | Loss: 0.002 | Acc: 99.940% (49970/50000) | Training Time: 12s139ms
+Epoch: 153 | Loss: 0.590 | Acc: 92.670% (9267/10000) | Testing Time: 1s659ms
+
+Epoch: 154
+Epoch: 154 | Loss: 0.002 | Acc: 99.946% (49973/50000) | Training Time: 11s926ms
+Epoch: 154 | Loss: 0.549 | Acc: 92.980% (9298/10000) | Testing Time: 1s646ms
+
+Epoch: 155
+Epoch: 155 | Loss: 0.002 | Acc: 99.948% (49974/50000) | Training Time: 11s822ms
+Epoch: 155 | Loss: 0.566 | Acc: 93.060% (9306/10000) | Testing Time: 1s663ms
+
+Epoch: 156
+Epoch: 156 | Loss: 0.002 | Acc: 99.952% (49976/50000) | Training Time: 11s782ms
+Epoch: 156 | Loss: 0.556 | Acc: 93.200% (9320/10000) | Testing Time: 1s596ms
+Saving..
+
+Epoch: 157
+Epoch: 157 | Loss: 0.001 | Acc: 99.962% (49981/50000) | Training Time: 11s874ms
+Epoch: 157 | Loss: 0.558 | Acc: 93.190% (9319/10000) | Testing Time: 1s566ms
+
+Epoch: 158
+Epoch: 158 | Loss: 0.002 | Acc: 99.940% (49970/50000) | Training Time: 12s61ms
+Epoch: 158 | Loss: 0.566 | Acc: 93.040% (9304/10000) | Testing Time: 1s693ms
+
+Epoch: 159
+Epoch: 159 | Loss: 0.001 | Acc: 99.968% (49984/50000) | Training Time: 11s867ms
+Epoch: 159 | Loss: 0.555 | Acc: 93.030% (9303/10000) | Testing Time: 1s678ms
+
+Epoch: 160
+Epoch: 160 | Loss: 0.002 | Acc: 99.942% (49971/50000) | Training Time: 11s979ms
+Epoch: 160 | Loss: 0.569 | Acc: 93.120% (9312/10000) | Testing Time: 1s645ms
+
+Epoch: 161
+Epoch: 161 | Loss: 0.001 | Acc: 99.956% (49978/50000) | Training Time: 12s15ms
+Epoch: 161 | Loss: 0.581 | Acc: 93.100% (9310/10000) | Testing Time: 1s636ms
+
+Epoch: 162
+Epoch: 162 | Loss: 0.001 | Acc: 99.960% (49980/50000) | Training Time: 11s873ms
+Epoch: 162 | Loss: 0.570 | Acc: 93.150% (9315/10000) | Testing Time: 1s579ms
+
+Epoch: 163
+Epoch: 163 | Loss: 0.001 | Acc: 99.974% (49987/50000) | Training Time: 11s903ms
+Epoch: 163 | Loss: 0.581 | Acc: 93.130% (9313/10000) | Testing Time: 1s629ms
+
+Epoch: 164
+Epoch: 164 | Loss: 0.001 | Acc: 99.960% (49980/50000) | Training Time: 11s833ms
+Epoch: 164 | Loss: 0.572 | Acc: 93.240% (9324/10000) | Testing Time: 1s579ms
+Saving..
+
+Epoch: 165
+Epoch: 165 | Loss: 0.001 | Acc: 99.964% (49982/50000) | Training Time: 12s9ms
+Epoch: 165 | Loss: 0.570 | Acc: 93.110% (9311/10000) | Testing Time: 1s604ms
+
+Epoch: 166
+Epoch: 166 | Loss: 0.001 | Acc: 99.976% (49988/50000) | Training Time: 11s885ms
+Epoch: 166 | Loss: 0.564 | Acc: 93.320% (9332/10000) | Testing Time: 1s624ms
+Saving..
+
+Epoch: 167
+Epoch: 167 | Loss: 0.001 | Acc: 99.962% (49981/50000) | Training Time: 11s562ms
+Epoch: 167 | Loss: 0.580 | Acc: 93.270% (9327/10000) | Testing Time: 1s664ms
+
+Epoch: 168
+Epoch: 168 | Loss: 0.001 | Acc: 99.986% (49993/50000) | Training Time: 12s28ms
+Epoch: 168 | Loss: 0.561 | Acc: 93.280% (9328/10000) | Testing Time: 1s645ms
+
+Epoch: 169
+Epoch: 169 | Loss: 0.001 | Acc: 99.970% (49985/50000) | Training Time: 11s984ms
+Epoch: 169 | Loss: 0.580 | Acc: 93.250% (9325/10000) | Testing Time: 1s672ms
+
+Epoch: 170
+Epoch: 170 | Loss: 0.001 | Acc: 99.976% (49988/50000) | Training Time: 11s904ms
+Epoch: 170 | Loss: 0.577 | Acc: 93.160% (9316/10000) | Testing Time: 1s638ms
+
+Epoch: 171
+Epoch: 171 | Loss: 0.001 | Acc: 99.986% (49993/50000) | Training Time: 11s983ms
+Epoch: 171 | Loss: 0.559 | Acc: 93.370% (9337/10000) | Testing Time: 1s586ms
+Saving..
+
+Epoch: 172
+Epoch: 172 | Loss: 0.001 | Acc: 99.986% (49993/50000) | Training Time: 11s917ms
+Epoch: 172 | Loss: 0.552 | Acc: 93.290% (9329/10000) | Testing Time: 1s643ms
+
+Epoch: 173
+Epoch: 173 | Loss: 0.001 | Acc: 99.980% (49990/50000) | Training Time: 12s83ms
+Epoch: 173 | Loss: 0.566 | Acc: 93.510% (9351/10000) | Testing Time: 1s602ms
+Saving..
+
+Epoch: 174
+Epoch: 174 | Loss: 0.001 | Acc: 99.984% (49992/50000) | Training Time: 12s89ms
+Epoch: 174 | Loss: 0.555 | Acc: 93.440% (9344/10000) | Testing Time: 1s619ms
+
+Epoch: 175
+Epoch: 175 | Loss: 0.001 | Acc: 99.984% (49992/50000) | Training Time: 12s6ms
+Epoch: 175 | Loss: 0.547 | Acc: 93.630% (9363/10000) | Testing Time: 1s636ms
+Saving..
+
+Epoch: 176
+Epoch: 176 | Loss: 0.001 | Acc: 99.976% (49988/50000) | Training Time: 12s139ms
+Epoch: 176 | Loss: 0.551 | Acc: 93.400% (9340/10000) | Testing Time: 1s605ms
+
+Epoch: 177
+Epoch: 177 | Loss: 0.001 | Acc: 99.990% (49995/50000) | Training Time: 11s904ms
+Epoch: 177 | Loss: 0.563 | Acc: 93.360% (9336/10000) | Testing Time: 1s635ms
+
+Epoch: 178
+Epoch: 178 | Loss: 0.001 | Acc: 99.982% (49991/50000) | Training Time: 11s921ms
+Epoch: 178 | Loss: 0.567 | Acc: 93.500% (9350/10000) | Testing Time: 1s673ms
+
+Epoch: 179
+Epoch: 179 | Loss: 0.000 | Acc: 99.988% (49994/50000) | Training Time: 11s997ms
+Epoch: 179 | Loss: 0.568 | Acc: 93.280% (9328/10000) | Testing Time: 1s585ms
+
+Epoch: 180
+Epoch: 180 | Loss: 0.000 | Acc: 99.990% (49995/50000) | Training Time: 11s950ms
+Epoch: 180 | Loss: 0.568 | Acc: 93.340% (9334/10000) | Testing Time: 1s609ms
+
+Epoch: 181
+Epoch: 181 | Loss: 0.000 | Acc: 99.994% (49997/50000) | Training Time: 11s795ms
+Epoch: 181 | Loss: 0.560 | Acc: 93.520% (9352/10000) | Testing Time: 1s619ms
+
+Epoch: 182
+Epoch: 182 | Loss: 0.001 | Acc: 99.974% (49987/50000) | Training Time: 12s56ms
+Epoch: 182 | Loss: 0.570 | Acc: 93.350% (9335/10000) | Testing Time: 1s647ms
+
+Epoch: 183
+Epoch: 183 | Loss: 0.001 | Acc: 99.978% (49989/50000) | Training Time: 11s985ms
+Epoch: 183 | Loss: 0.567 | Acc: 93.360% (9336/10000) | Testing Time: 1s635ms
+
+Epoch: 184
+Epoch: 184 | Loss: 0.000 | Acc: 99.986% (49993/50000) | Training Time: 11s844ms
+Epoch: 184 | Loss: 0.564 | Acc: 93.320% (9332/10000) | Testing Time: 1s648ms
+
+Epoch: 185
+Epoch: 185 | Loss: 0.000 | Acc: 99.988% (49994/50000) | Training Time: 11s952ms
+Epoch: 185 | Loss: 0.557 | Acc: 93.330% (9333/10000) | Testing Time: 1s599ms
+
+Epoch: 186
+Epoch: 186 | Loss: 0.000 | Acc: 99.992% (49996/50000) | Training Time: 12s4ms
+Epoch: 186 | Loss: 0.563 | Acc: 93.490% (9349/10000) | Testing Time: 1s663ms
+
+Epoch: 187
+Epoch: 187 | Loss: 0.001 | Acc: 99.982% (49991/50000) | Training Time: 11s812ms
+Epoch: 187 | Loss: 0.577 | Acc: 93.400% (9340/10000) | Testing Time: 1s748ms
+
+Epoch: 188
+Epoch: 188 | Loss: 0.000 | Acc: 99.988% (49994/50000) | Training Time: 12s43ms
+Epoch: 188 | Loss: 0.565 | Acc: 93.480% (9348/10000) | Testing Time: 1s628ms
+
+Epoch: 189
+Epoch: 189 | Loss: 0.000 | Acc: 99.982% (49991/50000) | Training Time: 11s948ms
+Epoch: 189 | Loss: 0.562 | Acc: 93.430% (9343/10000) | Testing Time: 1s657ms
+
+Epoch: 190
+Epoch: 190 | Loss: 0.000 | Acc: 99.990% (49995/50000) | Training Time: 11s873ms
+Epoch: 190 | Loss: 0.571 | Acc: 93.310% (9331/10000) | Testing Time: 1s586ms
+
+Epoch: 191
+Epoch: 191 | Loss: 0.000 | Acc: 99.990% (49995/50000) | Training Time: 11s719ms
+Epoch: 191 | Loss: 0.555 | Acc: 93.420% (9342/10000) | Testing Time: 1s621ms
+
+Epoch: 192
+Epoch: 192 | Loss: 0.000 | Acc: 99.992% (49996/50000) | Training Time: 12s96ms
+Epoch: 192 | Loss: 0.564 | Acc: 93.390% (9339/10000) | Testing Time: 1s586ms
+
+Epoch: 193
+Epoch: 193 | Loss: 0.001 | Acc: 99.982% (49991/50000) | Training Time: 11s914ms
+Epoch: 193 | Loss: 0.557 | Acc: 93.480% (9348/10000) | Testing Time: 1s631ms
+
+Epoch: 194
+Epoch: 194 | Loss: 0.000 | Acc: 99.988% (49994/50000) | Training Time: 11s900ms
+Epoch: 194 | Loss: 0.555 | Acc: 93.410% (9341/10000) | Testing Time: 1s647ms
+
+Epoch: 195
+Epoch: 195 | Loss: 0.000 | Acc: 99.990% (49995/50000) | Training Time: 12s54ms
+Epoch: 195 | Loss: 0.562 | Acc: 93.280% (9328/10000) | Testing Time: 1s720ms
+
+Epoch: 196
+Epoch: 196 | Loss: 0.000 | Acc: 99.984% (49992/50000) | Training Time: 11s863ms
+Epoch: 196 | Loss: 0.557 | Acc: 93.600% (9360/10000) | Testing Time: 1s641ms
+
+Epoch: 197
+Epoch: 197 | Loss: 0.000 | Acc: 99.990% (49995/50000) | Training Time: 11s928ms
+Epoch: 197 | Loss: 0.561 | Acc: 93.410% (9341/10000) | Testing Time: 1s596ms
+
+Epoch: 198
+Epoch: 198 | Loss: 0.000 | Acc: 99.980% (49990/50000) | Training Time: 11s921ms
+Epoch: 198 | Loss: 0.566 | Acc: 93.350% (9335/10000) | Testing Time: 1s630ms
+
+Epoch: 199
+Epoch: 199 | Loss: 0.000 | Acc: 99.994% (49997/50000) | Training Time: 12s85ms
+Epoch: 199 | Loss: 0.572 | Acc: 93.400% (9340/10000) | Testing Time: 1s657ms
+Total Time: 45m20s
+==> Saving training loss/acc and testing loss/acc...
+==> Drawing loss and acc...
+==> Process finished.

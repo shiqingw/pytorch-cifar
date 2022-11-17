@@ -170,8 +170,33 @@ class ResNetFourLayer1(nn.Module):
 def ResNet_three_layer_1():
     return ResNetThreeLayer1(BasicBlock, [2, 2, 2])
 
+def ResNet_three_layer_2():
+    return ResNetThreeLayer1(BasicBlock, [1, 1, 1])
+
+def ResNet_three_layer_3():
+    return ResNetThreeLayer1(BasicBlock, [2, 1, 1])
+
+def ResNet_three_layer_4():
+    return ResNetThreeLayer1(BasicBlock, [1, 2, 1])
+
+def ResNet_three_layer_5():
+    return ResNetThreeLayer1(BasicBlock, [1, 1, 2])
+
+def ResNet_three_layer_6():
+    return ResNetThreeLayer1(BasicBlock, [2, 2, 1])
+
+def ResNet_three_layer_7():
+    return ResNetThreeLayer1(BasicBlock, [2, 1, 2])
+
+def ResNet_three_layer_8():
+    return ResNetThreeLayer1(BasicBlock, [1, 2, 2])
+
+
 def ResNet_four_layer_1():
     return ResNetFourLayer1(BasicBlock, [1, 1, 1, 1])
+
+def ResNet_four_layer_2():
+    return ResNetFourLayer1(BasicBlock, [2, 1, 1, 1])
 
 def ResNet18():
     return ResNet(BasicBlock, [2, 2, 2, 2])
