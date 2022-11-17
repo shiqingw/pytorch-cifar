@@ -151,7 +151,7 @@ if __name__ == '__main__':
                 # progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
                 #              % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
         test_stop_time = time.time()
-        print('Epoch: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d) | Training Time: %s'
+        print('Epoch: %03d | Loss: %.3f | Acc: %.3f%% (%d/%d) | Testing Time: %s'
                         % (epoch, test_loss/(batch_idx+1), 100.*correct/total, correct, total,
                          format_time(test_stop_time - test_start_time)))
    
@@ -185,3 +185,4 @@ if __name__ == '__main__':
          "testing_loss": testing_loss, "testing_acc": testing_acc}
     print("==> Saving training loss/acc and testing loss/acc...")
     save_dict(training_info, os.path.join(result_dir, "training_info.npy"))
+    print("==> Process finished.")
