@@ -9,6 +9,10 @@ import time
 import math
 import pickle
 
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 import torch.nn as nn
 import torch.nn.init as init
 
@@ -134,6 +138,44 @@ def save_dict(dict_obj, fullname):
     with open(fullname, 'wb') as handle:
         pickle.dump(dict_obj, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
+def load_dict(fullname):
+    with open(fullname, 'rb') as handle:
+        loaded_obj = pickle.load(handle)
+    return loaded_obj
+
+def plot_loss_and_acc(train_loss, train_acc, test_loss, test_acc, loss_path, acc_path):
+    fig = plt.figure(figsize=(10, 6), dpi=100, frameon=True)
+    plt.rc('text', usetex=True)
+    plt.rc('font', family='serif')
+    ax = plt.subplot(111)
+    ax.set_xlabel("epoch", fontsize=50)
+    ax.set_ylabel("loss", fontsize=50)
+    ax.plot(train_loss, linewidth = 5, label="training loss")
+    ax.plot(test_loss, linewidth = 5, label="testing loss")
+    ax.tick_params(axis='both', which='major', labelsize=40)
+    ax.grid()
+    ax.legend(fontsize = 40)
+    plt.tight_layout()
+    plt.savefig(loss_path, dpi=100)
+    plt.close(fig)
+
+    fig = plt.figure(figsize=(10, 6), dpi=100, frameon=True)
+    plt.rc('text', usetex=True)
+    plt.rc('font', family='serif')
+    ax = plt.subplot(111)
+    ax.set_xlabel("epoch", fontsize=50)
+    ax.set_ylabel("accuracy", fontsize=50)
+    ax.plot(train_acc, linewidth = 5, label="training accuracy")
+    ax.plot(test_acc, linewidth = 5, label="testing accuracy")
+    ax.set_ylim([0, 1.1])
+    ax.tick_params(axis='both', which='major', labelsize=40)
+    ax.grid()
+    ax.legend(fontsize = 40)
+    plt.tight_layout()
+    plt.savefig(acc_path, dpi=100)
+    plt.close(fig)
+
+
 def prepare_data(use_data_augmentation):
     if use_data_augmentation == 'Naive':
         transform_train = transforms.Compose([
@@ -204,3 +246,5 @@ def prepare_data(use_data_augmentation):
     
     else: raise ValueError("To be done")
     return trainloader, testloader
+
+

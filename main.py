@@ -17,7 +17,7 @@ import time
 import platform
 
 from models import *
-from utils import progress_bar, format_time, save_dict, prepare_data
+from utils import progress_bar, format_time, save_dict, prepare_data, plot_loss_and_acc
 from test_cases import *
 
 if __name__ == '__main__':
@@ -94,7 +94,7 @@ if __name__ == '__main__':
                             momentum=0.9, weight_decay=5e-4)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
     elif optimizier_type == 'Adam':
-        optimizer = optim.Adam(net.parameters(), lr=lr, weight_decay=5e-4)
+        optimizer = optim.Adam(net.parameters(), lr=lr)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
     else: raise ValueError('To be done')
 
@@ -181,8 +181,15 @@ if __name__ == '__main__':
         scheduler.step()
     stop_time = time.time()
     print("Total Time: %s" % format_time(stop_time - start_time))
+    
+    print("==> Saving training loss/acc and testing loss/acc...")
     training_info = {"training_loss": training_loss, "training_acc": training_acc,\
          "testing_loss": testing_loss, "testing_acc": testing_acc}
-    print("==> Saving training loss/acc and testing loss/acc...")
     save_dict(training_info, os.path.join(result_dir, "training_info.npy"))
+
+    print("==> Drawing loss and acc...")
+    loss_path = os.path.join(result_dir, "loss.png")
+    acc_path = os.path.join(result_dir, "acc.png")
+    plot_loss_and_acc(training_loss, training_acc, testing_loss, testing_acc, loss_path, acc_path)
+    
     print("==> Process finished.")
