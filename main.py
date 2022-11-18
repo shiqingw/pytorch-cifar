@@ -11,6 +11,8 @@ from torchvision.transforms import AutoAugmentPolicy
 
 from torchsummary import summary
 
+import numpy as np
+
 import os
 import argparse
 import time
@@ -29,6 +31,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     torch.manual_seed(0)
+    np.random.seed(0)
     exp_num = args.exp_num
     result_dir = './results/exp_{:03d}'.format(exp_num)
     if not os.path.isdir(result_dir):
