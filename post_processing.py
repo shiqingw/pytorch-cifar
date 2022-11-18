@@ -2,9 +2,9 @@ from utils import *
 import os
 import torch
 
-for exp_num in range(12):
+for exp_num in range(13,21):
 
-    result_dir = "./results/exp_{:03d}".format(exp_num+1)
+    result_dir = "./results/exp_{:03d}".format(exp_num)
 
     # plotting
     # training_info = load_dict(os.path.join(result_dir, "training_info.npy"))
@@ -20,4 +20,4 @@ for exp_num in range(12):
     # print highest acc
     checkpoint = torch.load(os.path.join(result_dir, "ckpt.pth"), map_location=torch.device('cpu'))    
     best_acc = checkpoint['acc']
-    print("Test case: {:03d}, highest acc: {:.3f}".format(exp_num+1, best_acc))
+    print("Test case: {:03d}, highest acc: {:.3f}".format(exp_num, best_acc))
