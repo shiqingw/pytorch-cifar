@@ -191,6 +191,17 @@ def ResNet_three_layer_7():
 def ResNet_three_layer_8():
     return ResNetThreeLayer1(BasicBlock, [1, 2, 2])
 
+def ResNet_three_layer_9():
+    return ResNetThreeLayer1(BasicBlock, [2, 2, 3])
+
+def ResNet_three_layer_10():
+    return ResNetThreeLayer1(BasicBlock, [1, 2, 3])
+
+def ResNet_three_layer_11():
+    return ResNetThreeLayer1(BasicBlock, [2, 1, 3])
+
+def ResNet_three_layer_12():
+    return ResNetThreeLayer1(BasicBlock, [2, 1, 4])
 
 def ResNet_four_layer_1():
     return ResNetFourLayer1(BasicBlock, [1, 1, 1, 1])
