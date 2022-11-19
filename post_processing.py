@@ -4,7 +4,7 @@ import torch
 # order = [7, 20, 13, 14, 15, 16, 17, 18, 19, 1]
 # order = [2 , 4, 5, 6, 8, 10, 11, 12]
 # order = [3, 9]
-for exp_num in range(21,28):
+for exp_num in range(28,33):
 
     result_dir = "./results/exp_{:03d}".format(exp_num)
 
