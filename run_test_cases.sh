@@ -1,4 +1,5 @@
 #!/bin/sh
-python3 -u main.py --exp_num 33 > results/exp_033/00output.out
-python3 -u main.py --exp_num 34 > results/exp_034/00output.out
-python3 -u main.py --exp_num 35 > results/exp_035/00output.out
+python3 -u main.py --exp_num 36 > results/exp_036/00output.out
+python3 -u main.py --exp_num 37 > results/exp_037/00output.out
+python3 -u main.py --exp_num 38 > results/exp_038/00output.out
+python3 -u main.py --exp_num 39 > results/exp_039/00output.out

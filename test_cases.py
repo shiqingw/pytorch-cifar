@@ -214,5 +214,29 @@ class Test_case(object):
             self.optimizier_type = 'SGD'
             self.lr = 0.1
             self.use_data_augmentation = 'Auto'
+        
+        elif test_case_num == 36:
+            self.net = ResNet_three_layer_9()
+            self.optimizier_type = 'SGD'
+            self.lr = 0.1
+            self.use_data_augmentation = 'Naive'
+        
+        elif test_case_num == 37:
+            self.net = ResNet_three_layer_10()
+            self.optimizier_type = 'SGD'
+            self.lr = 0.1
+            self.use_data_augmentation = 'Naive'
+        
+        elif test_case_num == 38:
+            self.net = ResNet_three_layer_11()
+            self.optimizier_type = 'SGD'
+            self.lr = 0.1
+            self.use_data_augmentation = 'Naive'
+        
+        elif test_case_num == 39:
+            self.net = ResNet_three_layer_12()
+            self.optimizier_type = 'SGD'
+            self.lr = 0.1
+            self.use_data_augmentation = 'Naive'
         else:
             raise ValueError('No matching test cases')
