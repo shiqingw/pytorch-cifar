@@ -2,6 +2,8 @@
 
 This GitHub repository contains the codebase of mini-project 1 of the Deep Learning course at NYU. In this project, we try to propose a modified residual network (ResNet) architecture with the highest possible test accuracy on the CIFAR-10 image classification dataset under the constraint that the model has no more than 5 million parameters.
 
+**Note: Most of the code is adapted from https://github.com/kuangliu/pytorch-cifar.**
+
 ## Prerequisites
 The code is tested on
 - Python 3.8.15
