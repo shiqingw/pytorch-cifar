@@ -1,35 +1,44 @@
-# Train CIFAR10 with PyTorch
+# ResNet Model with 5M Parameters on CIFAR-10
 
-I'm playing with [PyTorch](http://pytorch.org/) on the CIFAR10 dataset.
+This GitHub repository contains the codebase of mini-project 1 of the Deep Learning course at NYU.
 
 ## Prerequisites
-- Python 3.6+
-- PyTorch 1.0+
+The code is tested on
+- Python 3.8.15
+- PyTorch 1.13.0
+- Torchvision 0.14.0
 
-## Training
+## Code Usage
+1. Step 1: Define your test case in `test_cases.py`. 
+    - You can specify the network structure (must be defined in the `models` folder), the optimizer (`SGD` or `Adam`), the learning rate (a float number), and the data augmentation method (`'None'`, `'Naive'`, or `'Auto'`). 
+    - Here, we have defined three data augmentation methods for the project: `'None'` means that we use the original training data as it is (except for a normalization); `'Naive'` refers to the first data augmentation method (RandomCrop + RandomHorizontalFlip + Normalization); `'Auto'` refers to the second data augmentation method (RandomCrop + RandomHorizontalFlip + [AutoAugment](https://pytorch.org/vision/main/generated/torchvision.transforms.AutoAugment.html) + [Cutout](https://github.com/uoguelph-mlrg/Cutout) + Normalization); 
+
+2. Step 2a: Start training with the following command. The trained weights will be saved to the folder `results/exp_<exp_num>`.
 ```
-# Start training with: 
-python main.py
-
-# You can manually resume the training with: 
-python main.py --resume --lr=0.01
+python main.py --exp_num <exp_num>
 ```
 
-## Accuracy
-| Model             | Acc.        |
-| ----------------- | ----------- |
-| [VGG16](https://arxiv.org/abs/1409.1556)              | 92.64%      |
-| [ResNet18](https://arxiv.org/abs/1512.03385)          | 93.02%      |
-| [ResNet50](https://arxiv.org/abs/1512.03385)          | 93.62%      |
-| [ResNet101](https://arxiv.org/abs/1512.03385)         | 93.75%      |
-| [RegNetX_200MF](https://arxiv.org/abs/2003.13678)     | 94.24%      |
-| [RegNetY_400MF](https://arxiv.org/abs/2003.13678)     | 94.29%      |
-| [MobileNetV2](https://arxiv.org/abs/1801.04381)       | 94.43%      |
-| [ResNeXt29(32x4d)](https://arxiv.org/abs/1611.05431)  | 94.73%      |
-| [ResNeXt29(2x64d)](https://arxiv.org/abs/1611.05431)  | 94.82%      |
-| [SimpleDLA](https://arxiv.org/abs/1707.064)           | 94.89%      |
-| [DenseNet121](https://arxiv.org/abs/1608.06993)       | 95.04%      |
-| [PreActResNet18](https://arxiv.org/abs/1603.05027)    | 95.11%      |
-| [DPN92](https://arxiv.org/abs/1707.01629)             | 95.16%      |
-| [DLA](https://arxiv.org/pdf/1707.06484.pdf)           | 95.47%      |
+3. Step 2b: Alternatively, you can manually resume the training with the following command. Note that the folder `results/exp_<exp_num>` must exist and the previously trained weights must be named `ckpt.pth` inside the folder.
+```
+python main.py --exp_num <exp_num> --resume 
+```
+
+## Test Accuracy and Trained Weights
+Below is a brief summary of the models with more than 96% test accuracy on the CIFAR-10 dataset. 
+
+| Model       | Test Acc. (%)  | Number of Parameters (M) |Exp_num   |
+| ----------- | -------------- | ----------- | ----------- |
+| Net 2       | 96.00   | 4.98 |021       |
+| Net 6       | 96.03   | 2.48 |022       |
+| Net 8       | 96.47   | 2.78 |005       |
+| Net 9       | 96.53   | 3.96 |024       |
+| Net 10      | 96.22   | 3.89 |025       |
+| Net 11      | 96.31   | 3.66 |026       |
+| Net 12      | 96.37   | 4.84 |027       |
+| Net 20      | 96.61   | 4.29 |040       |
+| Net 21      | 96.76   | 4.94 |041       |
+
+You can find the training log (`00output.out`), trained weights (`ckpt.pth`), training and testing losses/accuracies (`training_info.npy`, `acc.png`, `loss.png`) in the `results/exp_<exp_num>` folder. For example, for Net 21, these documents can be found at `results/exp_041`.
+
+You will have to use the `pickle` package to load the `training_info.npy`. A helper function called `load_dict` can be found in `utils.py`.
 
